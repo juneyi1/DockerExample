@@ -1,0 +1,26 @@
+# Check which version of Docker you have
+docker -v
+
+# To run the container
+docker run -p 8889:5000 juneyi1/icd9_app
+
+# Go to web browser  
+http://localhost:8889
+
+# Remove all containers that exited
+docker rm $(docker ps -a -q -f status=exited)
+
+# Show all docker images and their ids
+docker images
+
+# Remove a docker image with a known IMAGE ID
+docker rmi 'IMAGE ID'
+
+# Push a imgae to docker hub
+docker push juneyi1/icd9_app 
+
+# Build a dokcer image
+docker build -t juneyi1/icd9_app .
+
+# Deployed to
+http://icd9-app.us-east-2.elasticbeanstalk.com

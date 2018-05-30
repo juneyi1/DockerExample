@@ -1,0 +1,36 @@
+<!doctype html>
+<title>ICD9_CM</title>
+{% if conditions  %}
+  <div>
+  	<h1>Conditions:</h1>
+		<form method="POST" action="result">
+			<select name="selection" style="font-size: 15px">
+				{% for condition in conditions %}
+					//<option value="{{ condition }}">{{ condition }}</option>
+				{% endfor%}
+			</select>
+			<input type="submit" value = "Submit" width="100px"/>
+		</form>
+  </div>
+  <div>
+        <h1>Enter conditions:</h1>
+                <form method="POST" action="result">
+			<textarea name="free_text" cols="100" rows="10" style="font-size: 15px"></textarea>
+                        <input type="submit" value = "Submit"/>
+                </form>
+  </div>
+  <div>
+        <h1>Choose a .csv file to upload:</h1>
+	<form method="POST" enctype="multipart/form-data" action="upload">
+  		<div>
+    			{#<label for="profile_pic">Choose a .csv file to upload</label>#}
+    			<input type="file" id="file" name="file" accept=".csv">
+  		{#</div>#}
+  		{#<div>#}
+                        <input type="submit" value = "Upload"/>
+  		</div>
+	</form>
+  </div>
+{% else %}
+  <h1>No matching codes found</h1>
+{% endif %}

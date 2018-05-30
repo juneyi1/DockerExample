@@ -1,0 +1,10 @@
+<!doctype html>
+<title>ICD9_CM</title>
+{% if code|length > 0 %}
+  <h1>Condition:</h1>
+	<p style="font-size: 30px" >{{ condition }}</p>
+  <h1>ICD9_CM code:</h1>
+	<p style="font-size: 30px" >{{ code }}</p>
+{% else %}
+  <h1>No matching codes found</h1>
+{% endif %}
